@@ -1,0 +1,21 @@
+import { insertContactEmail } from 'contactInfo.jsw';
+
+$w.onReady(function () {
+    setupPostButton();
+});
+
+function setupPostButton() {
+    $w('#successMsg').hide();
+    $w('#submitBtn').onClick(async () => {
+        const newContactEmail = { email: $w('#emailAddress').value };
+        $w('#emailAddress').value = '';
+        try {
+            await insertContactEmail(newContactEmail);
+            $w('#emailAddress').hide();
+            $w('#submitBtn').hide();
+            $w('#successMsg').show();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+}

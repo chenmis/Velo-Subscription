@@ -1,0 +1,40 @@
+import { insertContactEmail } from 'contactInfo';
+
+$w.onReady(() => {
+  initUI();
+  setupPostButton();
+  setUpCloseButton();
+});
+
+function initUI() {
+  $w('#successMsg').hide();
+}
+
+async function setupPostButton() {
+  $w('#submitBtn').onClick(async () => {
+
+    const newContactEmail = { 
+      email: $w('#emailAddress').value
+    };
+
+    try {
+      await insertContactEmail(newContactEmail);
+      showSuccess();
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  });
+}
+
+function showSuccess() {
+  $w('#emailAddress').value = '';
+  $w('#emailAddress').hide();
+  $w('#submitBtn').hide();
+  $w('#successMsg').show();
+}
+
+function setUpCloseButton() {
+  $w('#closeBtn').onClick(() => {
+    $w.Lightbox.close();
+  });
+}
