@@ -1,4 +1,4 @@
-import { contacts } from 'wix-crm-frontend';
+import wixCrmFrontend from 'wix-crm';
 
 export default class CrmService {
   async addContact(email) {
@@ -7,10 +7,10 @@ export default class CrmService {
     };
 
     try {
-      return await contacts.appendOrCreateContact(contactInfo);
+      return await wixCrmFrontend.contacts.appendOrCreateContact(contactInfo);
     } catch (error) {
       console.error(error);
-      throw error;
+      throw new Error("Failed to add or update the contact.");
     }
   }
 }
