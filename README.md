@@ -8,16 +8,17 @@ This app is designed to provide an "Emails / Leads Collection" widget integrated
 
 ## Table of Contents
 
-- [Preview](#Preview)
+- [Preview](#preview)
 - [Technical Requirements](#technical-requirements)
 - [Components Used](#components-used)
+- [Comparison Table](#comparison-table)
 - [Project Structure](#project-structure)
 - [Specific Implementation Details](#specific-implementation-details)
 - [OAuth and API Implementation](#oauth-and-api-implementation)
 - [Permissions](#permissions)
 - [Resources](#resources)
 - [Contact](#contact)
-- 
+
 
 ## Preview
 ![Emails/Leads Collection form](preview.png)
@@ -25,11 +26,30 @@ This app is designed to provide an "Emails / Leads Collection" widget integrated
 ## Technical Requirements
 
 - Draggable UI components for email collection
-- Integration with Wix site's CRM for storing new contacts
+- Integration with the Wix site's CRM for storing new contacts
 
 ## Components Used
 
 I used Wix Blocks for the draggable widget. It allows for greater flexibility with Wix Velo and is tightly integrated into the Wix environment.
+
+## Comparison Table
+| Criteria/Method         | Wix Blocks                                   | Embedded Scripts                           | Custom Elements                             |
+|-------------------------|----------------------------------------------|--------------------------------------------|---------------------------------------------|
+| **Steps**               | 1. Navigate to Wix Developer Center          | 1. Script Creation                         | 1. Create Custom Element                    |
+|                         | 2. Design UI Components                      | 2. Embedding                               | 2. Upload and Register                      |
+|                         | 3. Write Business Logic in Velo              | 3. API Calls                               | 3. API Interaction                          |
+|                         | 4. Use Built-in OAuth                        |                                            |                                             |
+|                         | 5. Publish & Install                         |                                            |                                             |
+| **Pros**                | Seamless Integration                         | High Flexibility                           | Reusability                                 |
+|                         | Easy Maintenance (SOLID, etc.)               | Quick to Deploy                            | Strong Isolation                            |
+|                         | Enhanced User Experience                     |                                            |                                             |
+| **Cons**                | Less Flexibility                             | Security Risks (e.g., XSS)                 | Complex Setup                               |
+|                         |                                              | Manual OAuth                               | Manual OAuth                                |
+| **Best For**            | Integrated Solutions, Easy Maintenance       | Quick & Highly Customizable Deployments    | Reusable, Isolated Components               |
+
+While Embedded Scripts offer flexibility and Custom Elements offer reusability, Wix Blocks provide seamless integration, better maintenance following best practices like SOLID, and enhanced security and user experience. Hence, Wix Blocks were chosen for this particular task.
+
+Velo simplifies CRM API integration, allowing for streamlined code. Moreover, after installing this Wix Block, customization is effortlessly achievable.
 
 ## Project Structure
 
