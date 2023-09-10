@@ -5,7 +5,7 @@ const PORT = 3000;
 
 const CLIENT_ID = 'CLIENT_ID';
 const CLIENT_SECRET = 'CLIENT_SECRET';
-const DOMAIN = 'http://localhost'
+const DOMAIN = 'https://18.202.33.143';
 const REDIRECT_URI = `${DOMAIN}:3000/callback`;
 
 app.get('/authorize', (req, res) => {
@@ -42,6 +42,15 @@ app.get('/callback', async (req, res) => {
     res.status(500).send('OAuth failed');
   }
 });
+
+// Create an HTTPS server instead of an HTTP server
+const httpsServer = https.createServer(
+  {
+    key: fs.readFileSync('/home/ubuntu/privkey.pem'),
+    cert: fs.readFileSync('/home/ubuntu/fullchain.pem'),
+  },
+  app
+);
 
 app.listen(PORT, () => {
   console.log(`Server running at ${DOMAIN}:${PORT}/`);
