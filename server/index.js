@@ -2,14 +2,12 @@ const https = require('https');
 const fs = require('fs');
 const express = require('express');
 const axios = require('axios');
-
 const app = express();
-const PORT = 3000;
 
 const CLIENT_ID = 'CLIENT_ID';
 const CLIENT_SECRET = 'CLIENT_SECRET';
 const DOMAIN = 'https://18.202.33.143';
-const REDIRECT_URI = `${DOMAIN}:${PORT}/callback`;
+const REDIRECT_URI = `${DOMAIN}/callback`;
 
 app.get('/authorize', (req, res) => {
   const TOKEN = req.query.token;
@@ -53,7 +51,7 @@ try {
   };
   
   https.createServer(options, app).listen(PORT, () => {
-    console.log(`Server running at ${DOMAIN}:${PORT}/`);
+    console.log(`Server running at ${DOMAIN}/`);
   });
 } catch (error) {
   console.error('Failed to start server:', error.message);
