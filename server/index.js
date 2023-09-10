@@ -48,8 +48,8 @@ app.get('/callback', async (req, res) => {
 
 try {
   const options = {
-    key: fs.readFileSync('path/to/your/privkey.pem'),
-    cert: fs.readFileSync('path/to/your/fullchain.pem'),
+    key: fs.readFileSync('privkey.pem'),
+    cert: fs.readFileSync('fullchain.pem'),
   };
   
   https.createServer(options, app).listen(PORT, () => {
