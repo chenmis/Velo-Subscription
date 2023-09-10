@@ -48,8 +48,8 @@ app.get('/callback', async (req, res) => {
 // Create an HTTPS server instead of an HTTP server
 const httpsServer = https.createServer(
   {
-    key: fs.readFileSync('/home/ubuntu/privkey.pem'),
-    cert: fs.readFileSync('/home/ubuntu/fullchain.pem'),
+    key: fs.readFileSync('privkey.pem'),
+    cert: fs.readFileSync('fullchain.pem'),
   },
   app
 );
