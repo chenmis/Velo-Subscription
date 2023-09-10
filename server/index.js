@@ -9,7 +9,8 @@ const DOMAIN = 'http://localhost'
 const REDIRECT_URI = `${DOMAIN}:3000/callback`;
 
 app.get('/authorize', (req, res) => {
-  const WIX_AUTH_URL = `https://www.wix.com/installer/install?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&state=1234`;
+  const TOKEN = req.query.token;
+  const WIX_AUTH_URL = `https://www.wix.com/installer/install?token=${TOKEN}client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&state=1234`;
   
   res.redirect(WIX_AUTH_URL);
 });
