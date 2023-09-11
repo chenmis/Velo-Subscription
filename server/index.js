@@ -6,8 +6,8 @@ const axios = require('axios');
 const app = express();
 const PORT = 443;
 
-const CLIENT_ID = '3c8bebe7-8b0a-4ec6-989c-68b7b1486b84';
-const CLIENT_SECRET = '086f0b7b-e9d3-407a-ba56-8e2d01b481d9';
+const CLIENT_ID = '025748bf-b32b-4358-8601-fcc8cf9bea92';
+const CLIENT_SECRET = 'e3498d8e-0a0a-45e9-876d-0524c6e9eaf2';
 const DOMAIN = 'https://18.202.33.143';
 const REDIRECT_URI = `${DOMAIN}/callback`;
 
