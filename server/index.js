@@ -9,14 +9,20 @@ const PORT = 443;
 const CLIENT_ID = '025748bf-b32b-4358-8601-fcc8cf9bea92';
 const CLIENT_SECRET = 'e3498d8e-0a0a-45e9-876d-0524c6e9eaf2';
 const DOMAIN = 'https://18.202.33.143';
-const REDIRECT_URI = `${DOMAIN}/callback`;
+const REDIRECT_URL = `${DOMAIN}/callback`;
 
 app.get('/authorize', (req, res) => {
   const TOKEN = req.query.token;
-  const WIX_AUTH_URL = `https://www.wix.com/installer/install?token=${TOKEN}&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&state=1234`;
+  
+  if (!TOKEN) {
+    return res.status(400).send('Token is required');
+  }
+
+  const WIX_AUTH_URL = `https://www.wix.com/installer/install?token=${TOKEN}&app_id=${CLIENT_ID}&redirect_url=${REDIRECT_URL}&state=1234`;
   
   res.redirect(WIX_AUTH_URL);
 });
+
 
 app.get('/callback', async (req, res) => {
   try {
