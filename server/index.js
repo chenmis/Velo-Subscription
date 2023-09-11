@@ -13,12 +13,12 @@ const REDIRECT_URL = `${DOMAIN}/callback`;
 
 app.get('/authorize', (req, res) => {
   const TOKEN = req.query.token;
-  
+  console.log(TOKEN)
   if (!TOKEN) {
     return res.status(400).send('Token is required');
   }
 
-  const WIX_AUTH_URL = `https://www.wix.com/installer/install?token=${TOKEN}&app_id=${CLIENT_ID}&redirect_url=${REDIRECT_URL}&state=1234`;
+  const WIX_AUTH_URL = `https://www.wix.com/installer/install?token=${TOKEN}&appId=${CLIENT_ID}&redirectUrl=${REDIRECT_URL}&state=1234`;
   
   res.redirect(WIX_AUTH_URL);
 });
